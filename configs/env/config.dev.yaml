@@ -1,2 +1,10 @@
-db:
-  tuyen: tuyennx_dev
+kafka:
+  serverUrl: localhost:9092
+  clientId: client-id-test
+  groupId: group-id-test
+  ssl: false
+  sasl:
+    mechanism: "plain"
+    username: "xxxxxx"
+    password: "xxxxxxxxxxxxxxxx"
+  enabled: true
