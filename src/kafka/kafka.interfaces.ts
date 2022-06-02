@@ -1,4 +1,7 @@
+
 export interface IMessageKafka {
-  key: string;
+  key?: string;
   value: any;
+  headers?: any;
+  name?: string;
 }

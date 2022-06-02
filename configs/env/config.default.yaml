@@ -3,8 +3,14 @@ kafka:
   clientId: client-id-test
   groupId: group-id-test
   ssl: false
-  sasl:
-    mechanism: "plain"
-    username: "xxxxxx"
-    password: "xxxxxxxxxxxxxxxx"
-  enabled: true
+
+# kafka:
+#   serverUrl: localhost:9092
+#   clientId: client-id-test
+#   groupId: group-id-test
+#   ssl: false
+#   sasl:
+#     mechanism: "plain"
+#     username: "xxxxxx"
+#     password: "xxxxxxxxxxxxxxxx"
+#   enabled: true

@@ -20,16 +20,15 @@ export class ConsumerController implements OnModuleInit {
         ], // fromBeginning : là đọc từ đâu, từ đầu hay từ đâu theo groupId, nghĩa là nếu groupId đọc đến đâu thì nó sẽ đọc tiếp từ đấy trong khi bị lỗi
         {
           eachMessage: async ({ topic, partition, message }) => {
-            const key = (message.key || '').toString();
             const value = message.value.toString();
 
             switch (topic) {
               case KafkaTopicEnum.TUYENNX:
-                this.handleTopicTuyennx(key, value);
+                this.handleTopicTuyennx(value);
                 break;
 
               case KafkaTopicEnum.TUYENNX1:
-                this.handleTopicTuyennx1(key, value);
+                this.handleTopicTuyennx1(value);
                 break;
             }
 
@@ -48,11 +47,17 @@ export class ConsumerController implements OnModuleInit {
     }
   }
 
-  private async handleTopicTuyennx(key, value) {
-    console.log(111112222, key, value);
+  private async handleTopicTuyennx(value) {
+    const bodyData = JSON.parse(value);
+    console.log(111112222, bodyData.name);
+    switch(bodyData.name) {
+      case '....':
+      break;
+    }
   }
 
-  private async handleTopicTuyennx1(key, value) {
-    console.log(3333333, key, value);
+  private async handleTopicTuyennx1(value) {
+    const bodyData = JSON.parse(value);
+    console.log(545454, bodyData.name);
   }
 }

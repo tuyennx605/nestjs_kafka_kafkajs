@@ -5,16 +5,21 @@ import { ProducerService } from 'src/kafka/producer.service';
 @Injectable()
 export class CatService {
   constructor(private readonly producerService: ProducerService) {}
-
+// https://kafka.js.org/docs/producing
   async getHello() {
     this.producerService.sendKafkaMessage(KafkaTopicEnum.TUYENNX, [
       {
-        key: 'TUYENNX',
-        value: JSON.stringify([
+        // key: '0',
+        value: JSON.stringify(
           {
-            value: 'Hello World11',
-          },
-        ]),
+            name: 'KEY_NAME',
+            value: [
+              {
+                value: 'key11111',
+              },
+            ],
+          }
+        )
       },
     ]);
 
@@ -24,12 +29,15 @@ export class CatService {
   async getHello1() {
     this.producerService.sendKafkaMessage(KafkaTopicEnum.TUYENNX1, [
       {
-        key: 'TUYENNX1',
-        value: JSON.stringify([
-          {
-            value: 'Hello World11',
-          },
-        ]),
+        // key: 'TUYENNX1',
+        value: {
+          name: 'KEY_NAME111',
+          value: JSON.stringify([
+            {
+              value: 'key22222',
+            },
+          ]),
+        }
       },
     ]);
 
